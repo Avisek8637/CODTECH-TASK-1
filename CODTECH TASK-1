@@ -1,0 +1,84 @@
+Task One: Deploying a Web Application on AWS
+
+
+Step 1: Choose a Framework
+
+- Select a Python-based framework like Flask or a Node.js-based framework like Express.
+- Ensure you have the necessary dependencies installed (e.g., Python, pip, Node.js, npm).
+
+
+Step 2: Create an AWS Account
+
+- Go to the AWS website ((link unavailable)) and sign up for a free tier account.
+- Fill in the required information, including name, email address, and password.
+- Verify your email address and phone number.
+
+
+Step 3: Launch an EC2 Instance
+
+- Log in to the AWS Management Console.
+- Navigate to the EC2 dashboard and click "Launch Instance."
+- Choose an Amazon Machine Image (AMI) that matches your framework (e.g., Amazon Linux 2).
+- Select the instance type (e.g., t2.micro) and configure the instance details.
+- Create a new key pair or use an existing one for secure login.
+
+
+Step 4: Deploy Your Web Application
+
+- Connect to your EC2 instance using SSH.
+- Install the necessary dependencies for your framework.
+- Upload your web application code to the instance (e.g., using SFTP).
+- Configure the web server (e.g., Apache, Nginx) to serve your application.
+- Alternatively, use AWS Elastic Beanstalk for automated deployment.
+
+Flask Application ((link unavailable))
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80)
+
+
+HTML Template (index.html)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Web Application</title>
+</head>
+<body>
+    <h1>Welcome to my web application!</h1>
+</body>
+</html>
+
+
+Node.js Application (server.js)
+
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Welcome to my web application!");
+});
+
+app.listen(80, () => {
+    console.log("Server listening on port 80");
+});
+
+
+
+
+Step 5: Configure Security Groups
+
+- Navigate to the EC2 dashboard and select the instance.
+- Click "Actions" and then "Networking" > "Change security groups."
+- Select the security group associated with your instance.
+- Configure the inbound rules to allow traffic on the necessary ports (e.g., port 80 for HTTP).
+- Configure the outbound rules to allow traffic on the necessary ports (e.g., port 443 for HTTPS).
+
